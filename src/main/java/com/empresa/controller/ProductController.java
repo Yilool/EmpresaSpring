@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.empresa.entity.Product;
 import com.empresa.service.AppService;
 
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
 @RestController
 @RequestMapping(path = "/empresa")
 public class ProductController {
