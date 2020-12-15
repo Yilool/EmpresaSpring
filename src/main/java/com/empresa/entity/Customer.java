@@ -1,31 +1,22 @@
 package com.empresa.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Customer implements Comparable<Customer>, Serializable{
+	private static AtomicInteger id = new AtomicInteger(0);
 	private int cusId;
 	private String cusName;
 	private String cusSurname;
-	private List<Product> cusProducts;
 	
 	public Customer() {
-		this.cusProducts = new ArrayList<>();
+		this.cusId = id.addAndGet(1);
 	}
 	
 	public Customer(String name, String surname) {
 		this.cusName = name;
 		this.cusSurname = surname;
-		this.cusProducts = new ArrayList<>();
-	}
-	
-	public void addCusProduct(Product p) {
-		cusProducts.add(p);
-	}
-	
-	public void rmCusProduct(Product p) {
-		cusProducts.remove(p);
+		this.cusId = id.addAndGet(1);
 	}
 
 	public String getCusName() {
@@ -46,14 +37,6 @@ public class Customer implements Comparable<Customer>, Serializable{
 
 	public int getCusId() {
 		return cusId;
-	}
-
-	public ArrayList<Product> getCusProducts() {
-		ArrayList<Product> aux = new ArrayList<>();
-		
-		aux.addAll(cusProducts);
-		
-		return aux;
 	}
 
 	@Override

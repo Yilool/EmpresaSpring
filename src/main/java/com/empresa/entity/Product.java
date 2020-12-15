@@ -41,7 +41,6 @@ public class Product implements Comparable<Product>, Serializable{
 
 	@Override
 	public int compareTo(Product other) {
-
 		return Integer.valueOf(this.getPrdId()).compareTo(other.getPrdId());
 	}
 }
